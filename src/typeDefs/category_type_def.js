@@ -19,7 +19,7 @@ const categoryTypeDefs = gql`
     }
 
     
-    type Mutation {
+    extend type Mutation {
         createCategory(category: CategoryInput!): Category
         deleteCategory(userId: String!, categoryName: String!): message
     }

@@ -10,38 +10,34 @@ class TasksAPI extends RESTDataSource{
 
     async createTask(task){
         task = new Object(JSON.parse(JSON.stringify(task)));
-        return await this.post('newTask', task);
+        return await this.post(`/newTask`, task);
     }
 
     async updateTask(task){
         task = new Object(JSON.parse(JSON.stringify(task)));
-        return await this.put('updateTask', task);
+        return await this.put(`/updateTask`, task);
     }
 
     async deleteTask(userId, taskTittle){
-        return await this.delete(`deleteTask/${userId}/${taskTittle}`);
+        return await this.delete(`/deleteTask/${userId}/${taskTittle}`);
     }
 
     async taskByUserIdAndTaskTittle(userId, taskTittle){
-        return await this.get(`getTask/${userId}/${taskTittle}`);
+        return await this.get(`/getTask/${userId}/${taskTittle}`);
     }
 
     async taskByUserIdAndFinalDate(userId, finalDate){
-        return await this.get(`${userId}/${finalDate}`);
+        return await this.get(`/${userId}/${finalDate}`);
     }
 
     async createCategory(category){
         category = new Object(JSON.parse(JSON.stringify(category)));
-        return await this.put('newCategory', category);
+        return await this.put(`/newCategory`, category);
     }
 
     async deleteCategory(userId, categoryName){
-        return await this.delete(`deleteCategory/${userId}/${categoryName}`);
+        return await this.delete(`/deleteCategory/${userId}/${categoryName}`);
     }
-
-
-
-
 }
 
 module.exports = TasksAPI;
