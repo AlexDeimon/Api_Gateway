@@ -29,6 +29,19 @@ class TasksAPI extends RESTDataSource{
     async taskByUserIdAndFinalDate(userId, finalDate){
         return await this.get(`${userId}/${finalDate}`);
     }
+
+    async createCategory(category){
+        category = new Object(JSON.parse(JSON.stringify(category)));
+        return await this.put('newCategory', category);
+    }
+
+    async deleteCategory(userId, categoryName){
+        return await this.delete(`deleteCategory/${userId}/${categoryName}`);
+    }
+
+
+
+
 }
 
 module.exports = TasksAPI;

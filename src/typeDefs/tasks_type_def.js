@@ -21,17 +21,17 @@ const taskTypeDefs = gql`
     }
 
     type message{
-        response: String;
+        response: String
     }
 
-    extend type Query {
+    type Query {
         taskByUserIdAndTaskTittle(userId: String!, taskTittle: String!): Task
         taskByUserIdAndFinalDate(userId: String!, finalDate: String!): [Task]
     }
     
     type Mutation {
         createTask(task: TaskInput!): Task
-        updateTask(task: TaskInput!): task
+        updateTask(task: TaskInput!): Task
         deleteTask(userId: String!, taskTittle: String!): message
     }
 `;

@@ -34,3 +34,5 @@ const taskResolver = {
         }
     }
 };
+
+module.exports = taskResolver;
