@@ -2,13 +2,13 @@ const taskResolver = {
     Query: {
         taskByUserIdAndTaskTittle: (_, {userId, taskTittle}, {dataSources, userIdToken}) => {
             if(userId == userIdToken)
-                return dataSources.taskAPI.taskByUserIdAndTaskTittle(userId, taskTittle)
+                return dataSources.tasksAPI.taskByUserIdAndTaskTittle(userId, taskTittle)
             else
                 null
         },
         taskByUserIdAndFinalDate: (_, {userId, finalDate}, {dataSources, userIdToken}) => {
             if(userId == userIdToken)
-                return dataSources.taskAPI.taskByUserIdAndFinalDate(userId, finalDate)
+                return dataSources.tasksAPI.taskByUserIdAndFinalDate(userId, finalDate)
             else
                 null
         }
@@ -16,19 +16,19 @@ const taskResolver = {
     Mutation: {
         createTask: (_, {task}, {dataSources, userIdToken}) => {
             if(task.userId == userIdToken)
-                return dataSources.taskAPI.createTask(task)
+                return dataSources.tasksAPI.createTask(task)
             else
                 return null
         },
         updateTask: (_, {task}, {dataSources, userIdToken}) => {
             if(task.userId == userIdToken)
-                return dataSources.taskAPI.updateTask(task)
+                return dataSources.tasksAPI.updateTask(task)
             else
                 return null
         },
         deleteTask: (_, {userId, taskTittle}, {dataSources, userIdToken}) => {
             if(userId == userIdToken)
-                return dataSources.taskAPI.deleteTask(userId, taskTittle)
+                return dataSources.tasksAPI.deleteTask(userId, taskTittle)
             else
                 return null
         }

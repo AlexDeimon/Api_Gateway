@@ -1,15 +1,17 @@
 const categoryResolver = {
+    Query: {},
+
     Mutation: {
         createCategory: (_, {category}, {dataSources, userIdToken}) => {
             if(category.userId == userIdToken)
-                return dataSources.taskAPI.createCategory(category)
+                return dataSources.tasksAPI.createCategory(category)
             else
                 return null
         },
 
         deleteCategory: (_, {userId, categoryName}, {dataSources, userIdToken}) => {
             if(userId == userIdToken)
-                return dataSources.taskAPI.deleteTask(userId, categoryName)
+                return dataSources.tasksAPI.deleteTask(userId, categoryName)
             else
                 return null
         }
