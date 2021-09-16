@@ -13,9 +13,9 @@ class TasksAPI extends RESTDataSource{
         return await this.post(`/newTask`, task);
     }
 
-    async updateTask(task){
+    async updateTask(taskId, task){
         task = new Object(JSON.parse(JSON.stringify(task)));
-        return await this.put(`/updateTask`, task);
+        return await this.put(`/updateTask/${taskId}`, task);
     }
 
     async deleteTask(userId, taskTittle){
@@ -26,8 +26,8 @@ class TasksAPI extends RESTDataSource{
         return await this.get(`/getTask/${userId}/${taskTittle}`);
     }
 
-    async taskByUserIdAndFinalDate(userId, finalDate){
-        return await this.get(`/${userId}/${finalDate}`);
+    async taskByUserIdAndTaskDate(userId, taskDate){
+        return await this.get(`/${userId}/${taskDate}`);
     }
 
     async createCategory(category){

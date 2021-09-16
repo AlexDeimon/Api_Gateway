@@ -2,32 +2,22 @@ const { gql } = require('apollo-server');
 
 const taskTypeDefs = gql`
     type Task {
-        taskId: String!
-        taskTittle: String
-        description: String
-        finalDate: String
-        status: String
-        taskCategory: String
+        taskId: String
         userId: String
+        taskTittle: String
+        taskCategory: String
+        taskDescription: String
+        taskStatus: String
+        taskDate: String
     }
     
     input TaskInput {
-        taskTittle: String
-        description: String
-        finalDate: String
-        status: String
-        taskCategory: String
         userId: String
-    }
-
-    input TaskInputUpdate {
-        taskId: String!
         taskTittle: String
-        description: String
-        finalDate: String
-        status: String
         taskCategory: String
-        userId: String
+        taskDescription: String
+        taskStatus: String
+        taskDate: String
     }
 
     type message{
@@ -36,12 +26,12 @@ const taskTypeDefs = gql`
 
     type Query {
         taskByUserIdAndTaskTittle(userId: String!, taskTittle: String!): Task
-        taskByUserIdAndFinalDate(userId: String!, finalDate: String!): [Task]
+        taskByUserIdAndTaskDate(userId: String!, taskDate: String!): [Task]
     }
     
     type Mutation {
         createTask(task: TaskInput!): Task
-        updateTask(task: TaskInputUpdate!): Task
+        updateTask(taskId: String!, task: TaskInput!): Task
         deleteTask(userId: String!, taskTittle: String!): message
     }
 `;

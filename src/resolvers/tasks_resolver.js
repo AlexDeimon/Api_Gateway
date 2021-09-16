@@ -6,9 +6,9 @@ const taskResolver = {
             else
                 null
         },
-        taskByUserIdAndFinalDate: (_, {userId, finalDate}, {dataSources, userIdToken}) => {
+        taskByUserIdAndTaskDate: (_, {userId, taskDate}, {dataSources, userIdToken}) => {
             if(userId == userIdToken)
-                return dataSources.tasksAPI.taskByUserIdAndFinalDate(userId, finalDate)
+                return dataSources.tasksAPI.taskByUserIdAndTaskDate(userId, taskDate)
             else
                 null
         }
@@ -20,9 +20,9 @@ const taskResolver = {
             else
                 return null
         },
-        updateTask: (_, {task}, {dataSources, userIdToken}) => {
+        updateTask: (_, {taskId, task}, {dataSources, userIdToken}) => {
             if(task.userId == userIdToken)
-                return dataSources.tasksAPI.updateTask(task)
+                return dataSources.tasksAPI.updateTask(taskId, task)
             else
                 return null
         },
