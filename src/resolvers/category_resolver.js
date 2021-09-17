@@ -11,7 +11,7 @@ const categoryResolver = {
 
         deleteCategory: (_, {userId, categoryName}, {dataSources, userIdToken}) => {
             if(userId == userIdToken)
-                return dataSources.tasksAPI.deleteTask(userId, categoryName)
+                return dataSources.tasksAPI.deleteCategory(userId, categoryName)
             else
                 return null
         }

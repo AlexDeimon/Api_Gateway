@@ -32,7 +32,7 @@ class TasksAPI extends RESTDataSource{
 
     async createCategory(category){
         category = new Object(JSON.parse(JSON.stringify(category)));
-        return await this.put(`/newCategory`, category);
+        return await this.post(`/newCategory`, category);
     }
 
     async deleteCategory(userId, categoryName){
